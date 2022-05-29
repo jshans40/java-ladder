@@ -5,7 +5,7 @@ import nextstep.ladder.doman.Participants;
 
 public class OutputView {
 
-    private static final String EXECUTE_MESSAGE = "실행 결과";
+    private static final String EXECUTE_MESSAGE = "사다리 결과";
     private static final StringBuilder stringBuilder = new StringBuilder();
 
     public static void printResult(LadderGame ladderGame) {
