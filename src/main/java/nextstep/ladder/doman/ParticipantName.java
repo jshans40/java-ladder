@@ -1,7 +1,7 @@
 package nextstep.ladder.doman;
 
 public class ParticipantName {
-    private final int MAX_NAME_LENGTH = 5;
+    private static final int MAX_NAME_LENGTH = 5;
 
     private final StringBuilder stringBuilder = new StringBuilder();
     private final String name;

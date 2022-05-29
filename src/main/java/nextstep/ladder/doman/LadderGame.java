@@ -10,12 +10,12 @@ public class LadderGame {
     private final List<Line> lines;
 
     public LadderGame(Participants participants, LadderHeight ladderHeight, RandomConnectStrategy randomConnectStrategy) {
-        this.lines = makeLines(ladderHeight, participants.getParticipantCount(), randomConnectStrategy);
+        this.lines = makeLines(ladderHeight, participants, randomConnectStrategy);
     }
 
-    private List<Line> makeLines(LadderHeight ladderHeight, int participantCount, RandomConnectStrategy randomConnectStrategy) {
+    private List<Line> makeLines(LadderHeight ladderHeight, Participants participants, RandomConnectStrategy randomConnectStrategy) {
         return IntStream.range(ZERO, ladderHeight.getValue())
-                .mapToObj(x -> new Line(participantCount, randomConnectStrategy))
+                .mapToObj(x -> new Line(participants, randomConnectStrategy))
                 .collect(Collectors.toList());
     }
 

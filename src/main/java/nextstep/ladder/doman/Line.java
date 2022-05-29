@@ -9,24 +9,23 @@ public class Line {
 
     private final List<Point> points = new ArrayList<>();
 
-    public Line(int countOfPerson, PointConnectStrategy pointConnectStrategy) {
-        validate(countOfPerson, pointConnectStrategy);
-        addPoints(countOfPerson, pointConnectStrategy);
+    public Line(Participants participants, PointConnectStrategy pointConnectStrategy) {
+        validate(participants, pointConnectStrategy);
+        addPoints(participants, pointConnectStrategy);
     }
 
-    private void validate(int countOfPerson, PointConnectStrategy pointConnectStrategy) {
-        if (countOfPerson <= 0) {
-            throw new IllegalArgumentException(String.format("참가자가 없으면 진행할 수 없습니다. 참가자 수 : %d", countOfPerson));
+    private void validate(Participants participants, PointConnectStrategy pointConnectStrategy) {
+        if (participants == null) {
+            throw new IllegalArgumentException("참가자는 필수입니다.");
         }
-
         if (pointConnectStrategy == null) {
             throw new IllegalArgumentException("연결 전략이 없을 수 없습니다.");
         }
     }
 
-    private void addPoints(int countOfPerson, PointConnectStrategy pointConnectStrategy) {
+    private void addPoints(Participants participants, PointConnectStrategy pointConnectStrategy) {
         addFirstPoint(pointConnectStrategy);
-        for (int i = 0; i < countOfPerson - 2; i++) {
+        for (int i = 0; i < participants.getParticipantCount() - 2; i++) {
             PointDirection pointDirection = new PointDirection(points.get(i));
             points.add(new Point(pointDirection, pointConnectStrategy.isConnected()));
         }

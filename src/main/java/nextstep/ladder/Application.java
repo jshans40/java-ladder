@@ -8,7 +8,7 @@ import nextstep.ladder.view.OutputView;
 
 public class Application {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         Participants participants = new Participants(InputView.getParticipantNames());
         LadderGame ladderGame = new LadderGame(participants, InputView.getLadderHeight(), new RandomConnectStrategy());
 

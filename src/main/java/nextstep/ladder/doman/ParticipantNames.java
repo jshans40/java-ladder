@@ -25,7 +25,7 @@ public class ParticipantNames {
     }
 
     private void validate(List<String> participantNames) {
-        if (participantNames == null || participantNames.size() <= 0) {
+        if (participantNames == null || participantNames.isEmpty()) {
             throw new IllegalArgumentException(NOT_NULL_PARTICIPANT_NAMES);
         }
     }
